@@ -1,0 +1,65 @@
+﻿@model IEnumerable<IBAirlines.Models.Vol>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Avion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pilote)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VilleDepart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VilleArrivee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeureDepart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeureArrivee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Avion.Marque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pilote.Adresse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VilleDepart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VilleArrivee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HeureDepart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HeureArrivee)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.VolID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.VolID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.VolID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

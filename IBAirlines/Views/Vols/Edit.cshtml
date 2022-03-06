@@ -1,0 +1,59 @@
+﻿@model IBAirlines.Models.Vol
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Vol</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="VolID" />
+            <div class="form-group">
+                <label asp-for="AvionID" class="control-label"></label>
+                <select asp-for="AvionID" class="form-control" asp-items="ViewBag.AvionID"></select>
+                <span asp-validation-for="AvionID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PiloteID" class="control-label"></label>
+                <select asp-for="PiloteID" class="form-control" asp-items="ViewBag.PiloteID"></select>
+                <span asp-validation-for="PiloteID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VilleDepart" class="control-label"></label>
+                <input asp-for="VilleDepart" class="form-control" />
+                <span asp-validation-for="VilleDepart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VilleArrivee" class="control-label"></label>
+                <input asp-for="VilleArrivee" class="form-control" />
+                <span asp-validation-for="VilleArrivee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeureDepart" class="control-label"></label>
+                <input asp-for="HeureDepart" class="form-control" />
+                <span asp-validation-for="HeureDepart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeureArrivee" class="control-label"></label>
+                <input asp-for="HeureArrivee" class="form-control" />
+                <span asp-validation-for="HeureArrivee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
